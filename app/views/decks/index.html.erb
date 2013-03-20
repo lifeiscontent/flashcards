@@ -1,0 +1,8 @@
+<h2>Decks</h2>
+<%= link_to "New Deck", new_deck_path, class: 'new-deck-link' %>
+
+<% if @decks.any? %>
+	<ul class="decks">
+	    <%= render @decks %>
+	</ul>
+<% end %>

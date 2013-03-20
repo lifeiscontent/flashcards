@@ -1,0 +1,14 @@
+<li class="card">
+	<%= link_to "#", class: 'card-inner' do %>
+		<div class="card-face card-front">
+			<%= card.front %>
+		</div>
+		<div class="card-face card-back">
+			<%= card.back %>
+		</div>
+	<% end %>
+	<nav class="nav">
+		<%= link_to "Edit", edit_deck_card_path(card.deck, card) %>
+		<%= link_to "Delete", deck_card_path(card.deck, card), method: 'delete', confirm: 'Are you sure you want to delete?' %>
+	</nav>
+</li>

@@ -1,0 +1,13 @@
+<header class="header">
+	<%= link_to root_path, class: 'header-logo' do %>
+		<h1>Flashcards</h1>
+	<% end %>
+	<nav class="nav header-nav">
+		<% if signed_in? %>
+			<%= link_to "Decks", decks_path %>
+			<%= link_to "Sign Out", session_path, method: :delete %>
+		<% else %>
+			<%= link_to "Sign In", new_session_path %>
+		<% end %>
+	</nav>
+</header>

@@ -1,0 +1,9 @@
+<ul><%= render @deck %></ul>
+
+<%= link_to "New #{@deck.name} Card", new_deck_card_path(@deck), class: 'new-card-link' %>
+
+<% if @deck.cards.any? %>
+	<ul class="cards">
+		<%= render @deck.cards %>
+	</ul>
+<% end %>

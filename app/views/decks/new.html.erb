@@ -1,0 +1,7 @@
+<%= form_for(@deck) do |form| %>
+	<div class="field">
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</div>
+	<%= form.submit "New Deck" %>
+<% end %>

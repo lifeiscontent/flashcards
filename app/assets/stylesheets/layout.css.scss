@@ -1,0 +1,100 @@
+html, body { font: 12px/1 'Helvetica Neue', 'Helvetica', sans-serif; }
+a { text-decoration: none; font-size: 12px; color: #333333; }
+p { line-height: 20px; }
+
+h1 { font-size: 26px; line-height: 32px; }
+h2 { font-size: 20px; line-height: 26px; }
+// body * { outline: 1px dotted; }
+
+.header {
+	@include clearfix;
+	background-color: #333333;
+	padding: 8px 10px;
+	&, a { color: #ffffff; }
+}
+.header-logo {
+	float: left;
+}
+.header-nav {
+	float: right;
+	line-height: 26px;
+	font-size: 14px;
+	a {
+		+ a { margin-left: 20px; }
+	}
+}
+
+.container { margin: 40px; }
+
+label { display: block; }
+
+$card-width: 4 * 40px;
+$card-height: 3 * 40px;
+
+.deck {
+	margin: 10px 0;
+	@include clearfix;
+	border-bottom: 1px solid #f0f0f0;
+	> a { float: left; }
+	> .nav { float: right; }
+}
+
+
+.new-card-link,
+.new-deck-link { display: block; margin: 10px 0; }
+
+.cards { @include clearfix; margin: 0 -20px; }
+.card {
+	float: left;
+	margin: 20px;
+	&.is-active .card-inner { @include transform(rotateY(180deg)); }
+	+ .card { margin-left: ($card-width / 8); }
+	 > a {
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		-webkit-user-select: none;
+		width: $card-width + (8 * 2);
+		height: $card-height + (8 * 2);
+		display: block;
+		position: relative;
+		@include perspective(1000);
+	}
+	> .nav {
+		@include clearfix;
+		padding: 8px;
+		a {
+			float: left;
+			+ a { float: right; }
+		}
+	}
+}
+.card-inner {
+	display: block;
+	@include box-shadow(0 1px 5px #888);
+	@include transform-style(preserve-3d);
+	@include transition(0.5s);
+	@include transform(rotateY(0deg));
+	width: $card-width;
+	height: $card-height;
+	border: 8px solid #fff;
+}
+.card-face {
+	text-align: center;
+	line-height: $card-height;
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+	background-color: #f7f7f7;
+	color: #333333;
+}
+
+.card-back {
+	@include transform(rotateY(180deg));
+}
+
+.card-front { z-index: 10; }
+.card.is-active .card-front { z-index: 0; }

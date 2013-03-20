@@ -1,0 +1,9 @@
+<li class="deck">
+	<%= link_to deck do %>
+		<h2><%= deck.name %></h2>
+	<% end %>
+	<nav class="nav">
+		<%= link_to "Edit", edit_deck_path(deck) %>
+		<%= link_to "Delete", deck, method: 'delete', confirm: 'Are you sure you want to delete?' %>
+	</nav>
+</li>
