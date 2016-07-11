@@ -1,4 +1,5 @@
 html, body { font: 12px/1 'Helvetica Neue', 'Helvetica', sans-serif; }
+
 a { text-decoration: none; font-size: 12px; color: #333333; }
 p { line-height: 20px; }
 
@@ -47,7 +48,7 @@ $card-height: 3 * 40px;
 .card {
 	float: left;
 	margin: 20px;
-	&.is-active .card-inner { @include transform(rotateY(180deg)); }
+	&.is-active .card-inner { transform: rotateY(180deg); }
 	+ .card { margin-left: ($card-width / 8); }
 	 > a {
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -56,7 +57,7 @@ $card-height: 3 * 40px;
 		height: $card-height + (8 * 2);
 		display: block;
 		position: relative;
-		@include perspective(1000);
+		perspective: 1000;
 	}
 	> .nav {
 		@include clearfix;
@@ -69,10 +70,10 @@ $card-height: 3 * 40px;
 }
 .card-inner {
 	display: block;
-	@include box-shadow(0 1px 5px #888);
-	@include transform-style(preserve-3d);
-	@include transition(0.5s);
-	@include transform(rotateY(0deg));
+	box-shadow: 0 1px 5px #888;
+	transform-style: preserve-3d;
+	transition: 0.5s;
+	transform: rotateY(0deg);
 	width: $card-width;
 	height: $card-height;
 	border: 8px solid #fff;
@@ -93,7 +94,7 @@ $card-height: 3 * 40px;
 }
 
 .card-back {
-	@include transform(rotateY(180deg));
+	transform: rotateY(180deg);
 }
 
 .card-front { z-index: 10; }
